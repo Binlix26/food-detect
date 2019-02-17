@@ -12,8 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 3. [Alyle UI](https://alyle-ui.firebaseapp.com/)
 
 ## Feature
-1. Submit an Image url (with fine resolution), possible ingredients will be returned. When the image has nothing to do with      food, 
-    predictions of ingredients would still be returned which is bad and funny.
+1. Submit an food mage url (with fine resolution), possible ingredients will be returned. When the image has nothing to do with           food, predictions of ingredients would still be returned which is bad and funny - not my fault :)
     
 2. User can delete the ingredients in the list located in the 'playground', also can add the ingredient to the shopping list.
 3. User can delete the ingredients from the shopping list.
