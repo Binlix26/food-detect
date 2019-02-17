@@ -1,0 +1,48 @@
+<div class="gl-container">
+  <ly-grid
+    justify="center"
+    container
+    spacing="16 8@XSmall">
+    <ly-grid item col="8 12@XSmall">
+      <h2 lyTyp="title" gutterBottom color="primary" class="pl-input-title">Ingredients List</h2>
+      <div class="gl-list-container">
+        <ly-paper *ngIf="ingredients.length; else empty">
+          <ly-list>
+            <button
+              *ngFor="let ingredient of ingredients"
+              ly-list-item>
+              <button
+                ly-button
+                appearance="icon"
+                lyTooltip="Shopping"
+                (click)="addToShopping(ingredient)"
+              >
+                <ly-icon>add</ly-icon>
+              </button>
+
+              <button
+                ly-button
+                appearance="icon"
+                lyTooltip="Delete"
+                color="warn"
+                (click)="delete(ingredient)"
+              >
+                <ly-icon>delete_forever</ly-icon>
+              </button>
+
+              <span
+                class="gl-list-item-text"
+                ly-line>{{ingredient.name}}
+              </span>
+
+            </button>
+          </ly-list>
+        </ly-paper>
+        <!-- Show bellow if there is no ingredient-->
+        <ng-template #empty>
+          <h3 lyTyp="subheading" gutterBottom color="warn">This is empty at the moment</h3>
+        </ng-template>
+      </div>
+    </ly-grid>
+  </ly-grid>
+</div>

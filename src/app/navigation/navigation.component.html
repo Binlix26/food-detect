@@ -1,0 +1,26 @@
+<div ly-paper bg="background:primary">
+  <ly-tabs [selectedIndex]="0">
+    <ly-tab>
+      <button
+        (click)="onNavigate('/home')"
+        ly-tab-label>
+        Home
+      </button>
+    </ly-tab>
+    <ly-tab>
+      <button
+        (click)="onNavigate('/playground')"
+        ly-tab-label>
+        Playground
+      </button>
+
+    </ly-tab>
+    <ly-tab>
+      <button
+        (click)="onNavigate('/shopping-list')"
+        ly-tab-label>
+        Shopping List
+      </button>
+    </ly-tab>
+  </ly-tabs>
+</div>

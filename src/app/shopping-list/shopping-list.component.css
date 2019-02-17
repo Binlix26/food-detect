@@ -1,0 +1,11 @@
+.sl-container {
+  padding-top: 2rem;
+}
+
+.sl-title, .sl-empty {
+  text-align: center;
+}
+
+.sl-item-title {
+  text-transform: capitalize;
+}

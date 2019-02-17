@@ -1,0 +1,13 @@
+.gl-container {
+  padding-top: 2rem;
+}
+
+.gl-list-container {
+  width: 90%;
+  margin-top: 2rem;
+}
+
+.gl-list-item-text {
+  text-align: center;
+  text-transform: capitalize;
+}

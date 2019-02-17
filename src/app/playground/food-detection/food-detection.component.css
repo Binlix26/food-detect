@@ -1,0 +1,13 @@
+.pl-input-container {
+  padding-top: 2rem;
+  width: 85%;
+}
+
+.pl-input-title {
+  text-align: center;
+}
+
+.pl-image {
+  width: 100%;
+  height: auto;
+}
