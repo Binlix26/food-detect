@@ -1,4 +1,4 @@
-# FoodDetect
+# Food-detection
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
 
@@ -6,22 +6,34 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Tools
+1. Angular 
+2. [Clarifai API - Food Model](https://clarifai.com/models)
+3. [Alyle UI](https://alyle-ui.firebaseapp.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Feature
+1. Submit an Image url (with fine resolution), possible ingredients will be returned. When the image has nothing to do with      food, 
+    predictions of ingredients would still be returned which is bad and funny.
+    
+2. User can delete the ingredients in the list located in the 'playground', also can add the ingredient to the shopping list.
+3. User can delete the ingredients from the shopping list.
 
-## Build
+## Improvements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Playground
+1. Add 'adding all of the ingredients to the shopping list' methond.
+2. Add loading icon to provide a better user experience when the app fecthes the data.
 
-## Running unit tests
+### Shopping List
+1. Add search, add new and edit functions.
+2. Fetch images and description of the ingredients by name (placeholder at the moment).
+3. adding functions for the two icons that do nothing currently.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Issues
+1. When the user clicks 'Try it' to get to the plaground, the Navigation Bar is not actived.
+2. Have error handler to handle error such as 400 bad request, but have no user notification.
 
-## Running end-to-end tests
+## Solutions
+1. Tried changing the Alyle UI component to utilise 'routerLinkActive' without any success, probably need to listen to dynamicly pass 'selectedIndexChange' which is @Input describled in Alyle Tab API.
+2. Set up a global Logging/Messaging service to provide a better user expereince, espetially when users enter a bad image     url.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
