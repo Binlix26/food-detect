@@ -31,8 +31,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Issues
 1. When the user clicks 'Try it' to get to the plaground, the Navigation Bar is not actived.
 2. Have error handler to handle error such as 400 bad request, but have no user notification.
+3. API key is exposed in the request which is insecure.
 
 ## Solutions
 1. Tried changing the Alyle UI component to utilise 'routerLinkActive' without any success, probably need to listen to dynamicly pass 'selectedIndexChange' which is @Input describled in Alyle Tab API.
 2. Set up a global Logging/Messaging service to provide a better user expereince, espetially when users enter a bad image     url.
+3. Making the API request from server side or using serverless web service.
 
