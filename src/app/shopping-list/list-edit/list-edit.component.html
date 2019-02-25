@@ -1,0 +1,35 @@
+<form
+  [formGroup]="ingredientForm"
+  (ngSubmit)="onSubmit()"
+  [className]="classes.container"
+>
+  <ly-field appearance="filled" fullWidth>
+    <input
+      lyNativeControl
+      type="text"
+      placeholder="Name"
+      formControlName="name"
+      [readOnly]="editMode"
+    />
+    <ly-hint>Hint</ly-hint>
+    <!-- <ly-error *ngIf="name.hasError('maxlength')">Max 16 characters</ly-error> -->
+    <ly-error *ngIf="name.hasError('required')">Required</ly-error>
+    <ly-hint [align]="'after'">{{ name.value?.length || 0 }}/32</ly-hint>
+  </ly-field>
+
+  <ly-field fullWidth appearance="filled">
+    <ly-label>Notes</ly-label>
+    <ly-placeholder>Notes</ly-placeholder>
+    <textarea lyNativeControl formControlName="desc"></textarea>
+    <ly-hint>Hint</ly-hint>
+    <ly-error *ngIf="desc.hasError('maxlength')">Max 20 characters</ly-error>
+  </ly-field>
+
+  <button 
+    ly-button 
+    bg="primary" 
+    raised 
+    type="submit"
+    [disabled]="!ingredientForm.valid"
+    >Save</button>
+</form>
