@@ -1,5 +1,5 @@
 import { LyTheme2, ThemeVariables } from '@alyle/ui';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Ingredient } from 'src/app/shared/ingredient.model';
