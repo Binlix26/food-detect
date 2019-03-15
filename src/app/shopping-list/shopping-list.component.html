@@ -1,48 +1,79 @@
 <div class="sl-container">
-  <h1 lyTyp="display1" gutterBottom color="primary" class="sl-title">Shopping List</h1>
+  <h1 lyTyp="display1" gutterBottom color="primary" class="sl-title">
+    Shopping List
+  </h1>
   <h2
     class="sl-empty"
     *ngIf="!items.length"
     lyTyp="title"
     gutterBottom
     color="warn"
-  >Empty</h2>
+  >
+    Empty
+  </h2>
+
   <ly-grid container [spacing]="16">
-    <ly-grid *ngFor="let item of items" item [col]="3">
-      <div>
-        <ly-card style="max-width: 320px">
-          <!-- TODO Get image by keyword (name of the ingredient) -->
-          <!--<ly-card-media-->
-          <!--bgImg="https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2FMountains-Blue.jpg?alt=media&token=d04f0279-79c6-4752-8b5a-cccd73720243"-->
-          <!--title="Mountains blue"></ly-card-media>-->
-          <ly-card-content>
-            <h2 lyTyp="headline" gutterBottom class="sl-item-title">{{item.name}}</h2>
-            <p lyTyp="body1">
-              <!-- TODO Get description by keyword (name of the ingredient) -->
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae laboriosam ipsa animi alias rem.
-            </p>
-          </ly-card-content>
-          <ly-card-actions disableActionSpacing>
-            <button ly-button appearance="icon" color="accent">
-              <ly-icon>favorite</ly-icon>
-            </button>
-            <button ly-button appearance="icon">
-              <ly-icon>share</ly-icon>
-            </button>
-            <button
-              ly-button
-              appearance="icon"
-              lyTooltip="Delete"
-              color="warn"
-              (click)="onDelete(item)"
-            >
-              <ly-icon>delete_forever</ly-icon>
-            </button>
-          </ly-card-actions>
-        </ly-card>
-      </div>
+    <!-- Shopping list container -->
+    <ly-grid item [col]="9">
+      <ly-grid container justify="center">
+        <!-- Search box -->
+        <ly-grid item [col]="10">
+          <app-list-search></app-list-search>
+
+          <a
+            ly-button
+            appearance="icon"
+            lyTooltip="Add New"
+            color="primary"
+            class="sl-btn-add"
+            (click)="onAddNew()"
+          >
+            <ly-icon class="sl-btn-add">add_circle_outline</ly-icon>
+          </a>
+        </ly-grid>
+        <ly-grid container *ngIf="items.length">
+          <ly-grid *ngFor="let item of items; let i = index" item [col]="4">
+            <div>
+              <ly-card class="sl-item" (click)="onItemSelect(i)">
+                <!-- TODO Get image by keyword (name of the ingredient) -->
+                <!--<ly-card-media-->
+                <!--bgImg="https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2FMountains-Blue.jpg?alt=media&token=d04f0279-79c6-4752-8b5a-cccd73720243"-->
+                <!--title="Mountains blue"></ly-card-media>-->
+                <ly-card-content>
+                  <h2 lyTyp="headline" gutterBottom class="sl-item-title">
+                    {{ item.name }}
+                  </h2>
+                  <p lyTyp="body1">
+                    {{ item.desc || 'Please Take Some Notes' }}
+                  </p>
+                </ly-card-content>
+                <ly-card-actions disableActionSpacing>
+                  <button ly-button appearance="icon" color="accent">
+                    <ly-icon>favorite_border</ly-icon>
+                  </button>
+                  <button ly-button appearance="icon">
+                    <ly-icon>share</ly-icon>
+                  </button>
+                  <button
+                    ly-button
+                    appearance="icon"
+                    lyTooltip="Delete"
+                    color="warn"
+                    (click)="onDelete(item)"
+                  >
+                    <ly-icon>delete_forever</ly-icon>
+                  </button>
+                </ly-card-actions>
+              </ly-card>
+            </div>
+          </ly-grid>
+        </ly-grid>
+      </ly-grid>
     </ly-grid>
 
+    <!-- Shopping list item edit / add container -->
+    <ly-grid item [col]="3">
+      <router-outlet></router-outlet>
+    </ly-grid>
   </ly-grid>
 </div>
-

@@ -1,12 +1,10 @@
-<ly-grid
-  justify="center"
-  container
-  spacing="16 8@XSmall"
->
+<ly-grid justify="center" container spacing="16 8@XSmall">
   <div class="pl-input-container">
     <ly-grid item col="8 12@XSmall">
       <div>
-        <h2 lyTyp="title" gutterBottom color="primary" class="pl-input-title">Please Enter Food Image Url</h2>
+        <h2 lyTyp="title" gutterBottom color="primary" class="pl-input-title">
+          Please Enter Food Image Url
+        </h2>
         <ly-field fullWidth appearance="outlined">
           <ly-label>URL</ly-label>
           <input
@@ -14,7 +12,8 @@
             #inputBox
             placeholder="Image Url"
             type="url"
-            (keypress)="onKeyPress($event)">
+            (keypress)="onKeyPress($event)"
+          />
           <button
             ly-button
             *ngIf="inputBox.value"
@@ -25,6 +24,9 @@
             <ly-icon>search</ly-icon>
           </button>
         </ly-field>
+        <span *ngIf="errorMessage" class="error-message">{{
+          errorMessage
+        }}</span>
       </div>
     </ly-grid>
   </div>
@@ -35,9 +37,7 @@
         [src]="this.imageUrl"
         alt="Food Image"
         class="pl-image"
-      >
+      />
     </div>
   </ly-grid>
 </ly-grid>
-
-

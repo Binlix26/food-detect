@@ -1,21 +1,21 @@
 <div class="gl-container">
-  <ly-grid
-    justify="center"
-    container
-    spacing="16 8@XSmall">
+  <ly-grid justify="center" container spacing="16 8@XSmall">
     <ly-grid item col="8 12@XSmall">
-      <h2 lyTyp="title" gutterBottom color="primary" class="pl-input-title">Ingredients List</h2>
+      <h2 lyTyp="title" gutterBottom color="primary" class="pl-input-title">
+        Ingredients List
+      </h2>
       <div class="gl-list-container">
         <ly-paper *ngIf="ingredients.length; else empty">
+          <button ly-button raised color="primary" (click)="addAllToShopping(sb)">
+            Add All
+          </button>
           <ly-list>
-            <button
-              *ngFor="let ingredient of ingredients"
-              ly-list-item>
+            <button *ngFor="let ingredient of ingredients" ly-list-item>
               <button
                 ly-button
                 appearance="icon"
                 lyTooltip="Shopping"
-                (click)="addToShopping(ingredient)"
+                (click)="addToShopping(ingredient, sb)"
               >
                 <ly-icon>add</ly-icon>
               </button>
@@ -30,17 +30,29 @@
                 <ly-icon>delete_forever</ly-icon>
               </button>
 
-              <span
-                class="gl-list-item-text"
-                ly-line>{{ingredient.name}}
+              <span class="gl-list-item-text" ly-line
+                >{{ ingredient.name }}
               </span>
-
             </button>
           </ly-list>
         </ly-paper>
         <!-- Show bellow if there is no ingredient-->
         <ng-template #empty>
-          <h3 lyTyp="subheading" gutterBottom color="warn">This is empty at the moment</h3>
+          <h3 lyTyp="subheading" gutterBottom color="warn">
+            This is empty at the moment
+          </h3>
+          <p *ngIf="isLoading" class="loading">
+            <ly-icon class="loadding-icon">
+              cached
+            </ly-icon>
+          </p>
+        </ng-template>
+
+        <ng-template ly-snack-bar #sb="lySnackBar">
+          <span>Ingredient is added</span>
+          <button ly-button color="accent" (click)="sb.dismiss()">
+            Dismiss
+          </button>
         </ng-template>
       </div>
     </ly-grid>

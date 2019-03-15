@@ -1,0 +1,21 @@
+<ly-field 
+  appearance="outlined" 
+  class="sl-searchbox">
+  <ly-label>Search</ly-label>
+  <input
+    #searchbox
+    lyNativeControl
+    placeholder="Start Typing"
+    type="text"
+    (input)="onInputChange()"
+  />
+  <button
+    ly-button
+    *ngIf="searchbox.value"
+    appearance="icon"
+    lySuffix
+    (click)="onReset();"
+  >
+    <ly-icon>close</ly-icon>
+  </button>
+</ly-field>
